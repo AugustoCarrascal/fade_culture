@@ -1,0 +1,100 @@
+/* ============ TAILWIND CONFIG & CUSTOM STYLES ============ */
+html { scroll-behavior: smooth; }
+body { background:#0D0D0D; }
+::selection { background:#00FF66; color:#0D0D0D; }
+
+.no-scrollbar::-webkit-scrollbar{ display:none; }
+.no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+
+.glass{
+  background: rgba(20,20,20,0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.text-glow{ text-shadow: 0 0 18px rgba(0,255,102,0.55), 0 0 46px rgba(0,255,102,0.25); }
+.text-glow-v{ text-shadow: 0 0 18px rgba(139,92,246,0.55), 0 0 46px rgba(139,92,246,0.25); }
+
+.btn-neon{
+  background: #00FF66;
+  color: #0D0D0D;
+  box-shadow: 0 0 20px rgba(0,255,102,0.45), 0 0 60px rgba(0,255,102,0.15);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.btn-neon:hover{ transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,255,102,0.7), 0 0 90px rgba(0,255,102,0.3); }
+.btn-neon:active{ transform: translateY(0); }
+
+.btn-ghost{
+  border: 1px solid rgba(255,255,255,0.18);
+  color:#FAFAFA;
+  transition: border-color .25s ease, background .25s ease;
+}
+.btn-ghost:hover{ border-color:#00FF66; background: rgba(0,255,102,0.06); }
+
+/* Signature element: the fade guard-bar (0 skin -> 8 longest), a real barber vocabulary motif */
+.fade-bar{
+  display:grid;
+  grid-template-columns: repeat(9, 1fr);
+  height: 6px;
+  border-radius: 999px;
+  overflow:hidden;
+  background:#1c1c1c;
+}
+.fade-bar span{ height:100%; }
+.fade-bar .on{ background:#00FF66; box-shadow:0 0 8px rgba(0,255,102,0.7); }
+.fade-bar .off{ background:#232323; }
+.fade-ticks{
+  display:grid;
+  grid-template-columns: repeat(9, 1fr);
+  font-family:'Oswald',sans-serif;
+  font-size:9px;
+  letter-spacing:0.05em;
+  color:#5a5a5a;
+}
+.fade-ticks span.active{ color:#00FF66; }
+
+.card-hover{ transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.card-hover:hover{ transform: translateY(-4px); border-color: rgba(0,255,102,0.5); box-shadow: 0 0 30px rgba(0,255,102,0.12); }
+
+.chip{
+  border:1px solid rgba(255,255,255,0.14);
+  color:#d4d4d4;
+  transition: all .2s ease;
+}
+.chip.selected{
+  border-color:#00FF66;
+  color:#00FF66;
+  background: rgba(0,255,102,0.08);
+  box-shadow: 0 0 16px rgba(0,255,102,0.25);
+}
+.chip.closed{ opacity:0.35; text-decoration: line-through; cursor:not-allowed; }
+.chip.taken{ opacity:0.3; text-decoration: line-through; cursor:not-allowed; }
+
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform: translateY(0); }
+
+.pulse-ring{
+  animation: pulseRing 2.4s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+@keyframes pulseRing{
+  0%{ box-shadow: 0 0 0 0 rgba(0,255,102,0.55); }
+  70%{ box-shadow: 0 0 0 16px rgba(0,255,102,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(0,255,102,0); }
+}
+
+.pin-pulse{ animation: pinPulse 2s ease-out infinite; }
+@keyframes pinPulse{
+  0%{ transform: scale(0.6); opacity:0.9; }
+  70%{ transform: scale(2.6); opacity:0; }
+  100%{ opacity:0; }
+}
+
+.scroll-cue{ animation: bounce 1.8s ease-in-out infinite; }
+@keyframes bounce{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
+
+input:focus, select:focus{ outline:none; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}

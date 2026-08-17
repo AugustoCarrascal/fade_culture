@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FADE CULTURE — Barbería Urbana en Belgrano</title>
+<meta name="description" content="Fade Culture, barbería urbana en Belgrano, CABA. Fades, diseños freestyle y colorimetría. Reservá tu turno online o por WhatsApp.">
+
+<link rel="icon" href="barberoa.jpg" type="image/jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0D0D0D',
+          inksoft: '#141414',
+          inkcard: '#161616',
+          inkline: '#242424',
+          neon: '#00FF66',
+          violet: '#8B5CF6',
+          paper: '#FAFAFA',
+        },
+        fontFamily: {
+          display: ['Oswald', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        boxShadow: {
+          glow: '0 0 20px rgba(0,255,102,0.45), 0 0 60px rgba(0,255,102,0.15)',
+          glowlg: '0 0 35px rgba(0,255,102,0.55), 0 0 90px rgba(0,255,102,0.2)',
+          glowv: '0 0 20px rgba(139,92,246,0.45), 0 0 60px rgba(139,92,246,0.15)',
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-ink text-paper font-body antialiased">
+
+<!-- ============ NAV ============ -->
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-40 transition-all duration-300 border-b border-transparent">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-20">
+    <a href="#inicio" class="font-display text-xl md:text-2xl tracking-tight font-semibold">
+      FADE<span class="text-neon text-glow">CULTURE</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-display uppercase text-sm tracking-wider text-gray-300">
+      <a href="#servicios" class="hover:text-neon transition-colors">Servicios</a>
+      <a href="#reservas" class="hover:text-neon transition-colors">Reservas</a>
+      <a href="#galeria" class="hover:text-neon transition-colors">Galería</a>
+      <a href="#opiniones" class="hover:text-neon transition-colors">Opiniones</a>
+      <a href="#ubicacion" class="hover:text-neon transition-colors">Ubicación</a>
+    </nav>
+
+    <a href="#reservas" class="hidden md:inline-flex btn-neon font-display uppercase text-sm tracking-wider font-semibold px-5 py-2.5 rounded-full">
+      Reservar turno
+    </a>
+
+    <button id="menuBtn" aria-label="Abrir menú" class="md:hidden text-paper p-2 -mr-2">
+      <svg id="iconMenu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-ink/98 border-t border-inkline">
+    <div class="flex flex-col px-5 py-4 gap-1 font-display uppercase tracking-wider text-base">
+      <a href="#servicios" class="mobile-link py-3 border-b border-inkline text-gray-200">Servicios</a>
+      <a href="#reservas" class="mobile-link py-3 border-b border-inkline text-gray-200">Reservas</a>
+      <a href="#galeria" class="mobile-link py-3 border-b border-inkline text-gray-200">Galería</a>
+      <a href="#opiniones" class="mobile-link py-3 border-b border-inkline text-gray-200">Opiniones</a>
+      <a href="#ubicacion" class="mobile-link py-3 text-gray-200">Ubicación</a>
+      <a href="#reservas" class="mobile-link btn-neon text-center rounded-full mt-4 py-3 text-ink font-semibold">Reservar turno</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="relative min-h-[100svh] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=1920&q=80"
+         alt="Barbero realizando un fade en Fade Culture Belgrano"
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/20 to-ink/60"></div>
+  </div>
+
+  <!-- ambient neon blobs -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-neon/20 rounded-full blur-[110px] pointer-events-none"></div>
+  <div class="absolute top-1/3 -right-24 w-96 h-96 bg-violet/20 rounded-full blur-[110px] pointer-events-none"></div>
+
+  <!-- rating chip -->
+  <a href="#opiniones" class="hidden sm:flex absolute top-24 right-6 md:right-10 glass rounded-2xl px-4 py-3 items-center gap-2 hover:border-neon/50 transition-colors">
+    <span class="text-neon text-lg">★★★★★</span>
+    <span class="font-display text-sm tracking-wide">4.9/5 <span class="text-gray-400 font-body">· Google</span></span>
+  </a>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-8 pb-16 md:pb-24 w-full">
+    <p class="reveal font-display uppercase tracking-[0.35em] text-neon text-xs md:text-sm mb-5">
+      Fade Culture — Belgrano, CABA
+    </p>
+    <h1 class="reveal font-display uppercase font-semibold leading-[0.95] text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl">
+      Estilo, <span class="text-neon text-glow">precisión</span> y cortes de<br class="hidden md:block"> alta calidad.
+    </h1>
+    <p class="reveal text-gray-300 text-base md:text-lg mt-6 max-w-lg">
+      Tu barbería de confianza en Belgrano. Reservá tu turno en segundos.
+    </p>
+
+    <div class="reveal flex flex-wrap items-center gap-4 mt-8">
+      <a href="#reservas" class="btn-neon font-display uppercase font-semibold tracking-wider text-sm md:text-base px-8 py-4 rounded-full">
+        Reservar turno
+      </a>
+      <a href="#galeria" class="btn-ghost font-display uppercase font-semibold tracking-wider text-sm md:text-base px-8 py-4 rounded-full">
+        Ver trabajos
+      </a>
+    </div>
+
+    <!-- signature fade-bar -->
+    <div class="reveal mt-12 max-w-md">
+      <div class="fade-bar mb-1.5">
+        <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span>
+      </div>
+      <div class="fade-ticks">
+        <span class="active">0</span><span class="active">1</span><span class="active">2</span><span class="active">3</span><span class="active">4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" class="relative py-24 md:py-32 bg-ink">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+      <div>
+        <p class="font-display uppercase tracking-[0.3em] text-neon text-xs md:text-sm mb-3">Servicios</p>
+        <h2 class="font-display uppercase font-semibold text-4xl md:text-5xl leading-tight">Elegí tu corte</h2>
+      </div>
+      <p class="text-gray-400 max-w-sm">Cada servicio incluye toalla caliente, repaso de contorno y el detalle que nos diferencia: la línea limpia.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5 md:gap-6">
+
+      <!-- Servicio 1 -->
+      <article class="reveal card-hover glass rounded-2xl p-6 md:p-7 flex flex-col" data-service-card data-id="fade" data-name='Fade &amp; Design' data-price="16000" data-duration="45 min">
+        <div class="flex items-start justify-between mb-4">
+          <span class="font-display text-xs tracking-widest text-gray-500 border border-inkline rounded-full px-3 py-1">GUARD 1–2</span>
+        </div>
+        <h3 class="font-display uppercase font-semibold text-2xl mb-2">Fade &amp; Design</h3>
+        <p class="text-gray-400 text-sm mb-5">Degradado + líneas de precisión. El clásico que nunca falla.</p>
+        <div class="fade-bar mb-6"><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
+        <div class="mt-auto flex items-end justify-between">
+          <div>
+            <p class="font-display text-3xl font-semibold">$16.000</p>
+            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">45 min</p>
+          </div>
+          <button data-book-service class="btn-ghost font-display uppercase text-xs tracking-wider font-semibold px-4 py-3 rounded-full">Agendar</button>
+        </div>
+      </article>
+
+      <!-- Servicio 2 -->
+      <article class="reveal card-hover glass rounded-2xl p-6 md:p-7 flex flex-col" data-service-card data-id="urbano" data-name='Corte Urbano + Perfilado de Barba' data-price="22000" data-duration="50 min">
+        <div class="flex items-start justify-between mb-4">
+          <span class="font-display text-xs tracking-widest text-gray-500 border border-inkline rounded-full px-3 py-1">GUARD 2–3</span>
+        </div>
+        <h3 class="font-display uppercase font-semibold text-2xl mb-2">Corte Urbano + Barba</h3>
+        <p class="text-gray-400 text-sm mb-5">Corte urbano completo con perfilado de barba a navaja.</p>
+        <div class="fade-bar mb-6"><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
+        <div class="mt-auto flex items-end justify-between">
+          <div>
+            <p class="font-display text-3xl font-semibold">$22.000</p>
+            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">50 min</p>
+          </div>
+          <button data-book-service class="btn-ghost font-display uppercase text-xs tracking-wider font-semibold px-4 py-3 rounded-full">Agendar</button>
+        </div>
+      </article>
+
+      <!-- Servicio 3 - destacado -->
+      <article class="reveal card-hover glass rounded-2xl p-6 md:p-7 flex flex-col relative overflow-hidden border-neon/40" data-service-card data-id="combo" data-name='Combo High Level' data-price="25000" data-duration="60 min">
+        <span class="absolute top-0 right-0 bg-neon text-ink font-display text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-bl-xl">Más pedido</span>
+        <div class="flex items-start justify-between mb-4">
+          <span class="font-display text-xs tracking-widest text-neon border border-neon/40 rounded-full px-3 py-1">GUARD 3–4</span>
+        </div>
+        <h3 class="font-display uppercase font-semibold text-2xl mb-2">Combo High Level</h3>
+        <p class="text-gray-400 text-sm mb-5">Corte + barba + texturizado. La experiencia completa Fade Culture.</p>
+        <div class="fade-bar mb-6"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
+        <div class="mt-auto flex items-end justify-between">
+          <div>
+            <p class="font-display text-3xl font-semibold text-neon text-glow">$25.000</p>
+            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">60 min</p>
+          </div>
+          <button data-book-service class="btn-neon font-display uppercase text-xs tracking-wider font-semibold px-4 py-3 rounded-full">Agendar</button>
+        </div>
+      </article>
+
+      <!-- Servicio 4 -->
+      <article class="reveal card-hover glass rounded-2xl p-6 md:p-7 flex flex-col" data-service-card data-id="color" data-name='Colorimetría / Global / Platinado' data-price="35000" data-duration="90 min">
+        <div class="flex items-start justify-between mb-4">
+          <span class="font-display text-xs tracking-widest text-violet border border-violet/40 rounded-full px-3 py-1">Color</span>
+        </div>
+        <h3 class="font-display uppercase font-semibold text-2xl mb-2">Colorimetría / Platinado</h3>
+        <p class="text-gray-400 text-sm mb-5">Decoloración global o platinado con tratamiento post-color.</p>
+        <div class="fade-bar mb-6"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span></div>
+        <div class="mt-auto flex items-end justify-between">
+          <div>
+            <p class="font-display text-3xl font-semibold">$35.000</p>
+            <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">90 min</p>
+          </div>
+          <button data-book-service class="btn-ghost font-display uppercase text-xs tracking-wider font-semibold px-4 py-3 rounded-full">Agendar</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVAS ============ -->
+<section id="reservas" class="relative py-24 md:py-32 bg-inksoft border-y border-inkline">
+  <div class="max-w-5xl mx-auto px-5 md:px-8">
+    <div class="reveal text-center mb-12">
+      <p class="font-display uppercase tracking-[0.3em] text-neon text-xs md:text-sm mb-3">Reservas online</p>
+      <h2 class="font-display uppercase font-semibold text-4xl md:text-5xl">Sacá tu turno</h2>
+      <p class="text-gray-400 mt-3 max-w-md mx-auto">Elegí servicio, barbero, día y horario. Confirmás en menos de un minuto.</p>
+    </div>
+
+    <!-- progress fade-bar tied to booking completion -->
+    <div class="reveal max-w-md mx-auto mb-12">
+      <div id="progressBar" class="fade-bar mb-1.5">
+        <span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span>
+      </div>
+      <p class="text-center text-xs font-display uppercase tracking-widest text-gray-500" id="progressLabel">Guard 0 · Empezá eligiendo un servicio</p>
+    </div>
+
+    <div class="reveal glass rounded-3xl p-5 md:p-10">
+
+      <!-- 1. Servicio -->
+      <div class="mb-9">
+        <h3 class="font-display uppercase tracking-wider text-sm text-gray-400 mb-4">1. Servicio</h3>
+        <div id="serviceChips" class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+          <button class="chip whitespace-nowrap rounded-full px-5 py-3 font-display text-sm uppercase tracking-wide" data-svc="fade" data-price="16000" data-name="Fade &amp; Design" data-duration="45 min">Fade &amp; Design · $16.000</button>
+          <button class="chip whitespace-nowrap rounded-full px-5 py-3 font-display text-sm uppercase tracking-wide" data-svc="urbano" data-price="22000" data-name="Corte Urbano + Barba" data-duration="50 min">Corte Urbano + Barba · $22.000</button>
+          <button class="chip whitespace-nowrap rounded-full px-5 py-3 font-display text-sm uppercase tracking-wide" data-svc="combo" data-price="25000" data-name="Combo High Level" data-duration="60 min">Combo High Level · $25.000</button>
+          <button class="chip whitespace-nowrap rounded-full px-5 py-3 font-display text-sm uppercase tracking-wide" data-svc="color" data-price="35000" data-name="Colorimetría / Platinado" data-duration="90 min">Colorimetría / Platinado · $35.000</button>
+        </div>
+      </div>
+
+      <!-- 2. Barbero -->
+      <div class="mb-9">
+        <h3 class="font-display uppercase tracking-wider text-sm text-gray-400 mb-4">2. Barbero</h3>
+        <div class="grid grid-cols-3 gap-3 md:gap-4">
+          <button class="barber-card chip rounded-2xl p-3 md:p-4 flex flex-col items-center text-center gap-2" data-barber="alan" data-name='Alan "FadeMaster"'>
+            <img src="https://images.unsplash.com/photo-1630827020718-3433092696e7?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-inkline">
+            <span class="font-display text-xs md:text-sm leading-tight">Alan<br><span class="text-[10px] md:text-xs text-neon">"FadeMaster"</span></span>
+          </button>
+          <button class="barber-card chip rounded-2xl p-3 md:p-4 flex flex-col items-center text-center gap-2" data-barber="kevin" data-name='Kevin "The Barber"'>
+            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-inkline">
+            <span class="font-display text-xs md:text-sm leading-tight">Kevin<br><span class="text-[10px] md:text-xs text-neon">"The Barber"</span></span>
+          </button>
+          <button class="barber-card chip rounded-2xl p-3 md:p-4 flex flex-col items-center text-center gap-2" data-barber="nico" data-name="Nico">
+            <img src="https://images.unsplash.com/photo-1635273051839-003bf06a8751?auto=format&fit=crop&w=200&q=80" class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-inkline">
+            <span class="font-display text-xs md:text-sm leading-tight">Nico<br><span class="text-[10px] md:text-xs text-neon">Freestyle</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. Fecha -->
+      <div class="mb-9">
+        <h3 class="font-display uppercase tracking-wider text-sm text-gray-400 mb-4">3. Fecha</h3>
+        <div id="dateChips" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1"></div>
+      </div>
+
+      <!-- 4. Hora -->
+      <div class="mb-9">
+        <h3 class="font-display uppercase tracking-wider text-sm text-gray-400 mb-4">4. Horario</h3>
+        <div id="timeChips" class="grid grid-cols-4 sm:grid-cols-5 gap-2.5"></div>
+        <p id="timeHint" class="text-xs text-gray-500 mt-3">Elegí una fecha para ver los horarios disponibles.</p>
+      </div>
+
+      <!-- 5. Datos -->
+      <div class="mb-8">
+        <h3 class="font-display uppercase tracking-wider text-sm text-gray-400 mb-4">5. Tus datos</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input id="fName" type="text" placeholder="Nombre y apellido" class="bg-ink border border-inkline focus:border-neon rounded-xl px-4 py-3.5 text-sm placeholder:text-gray-600 sm:col-span-2">
+          <input id="fPhone" type="tel" placeholder="WhatsApp / Teléfono" class="bg-ink border border-inkline focus:border-neon rounded-xl px-4 py-3.5 text-sm placeholder:text-gray-600">
+          <input id="fEmail" type="email" placeholder="Correo electrónico" class="bg-ink border border-inkline focus:border-neon rounded-xl px-4 py-3.5 text-sm placeholder:text-gray-600">
+        </div>
+      </div>
+
+      <p id="formError" class="hidden text-sm text-red-400 mb-4"></p>
+
+      <!-- Resumen + acciones -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5 pt-2 border-t border-inkline">
+        <div id="summaryBox" class="text-sm text-gray-400">
+          Elegí un servicio para empezar tu reserva.
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <a id="waBookBtn" href="#" target="_blank" rel="noopener" class="btn-ghost font-display uppercase text-sm tracking-wider font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.1-1.3 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C4 14.6 3.6 13.3 3.6 12 3.6 7.4 7.4 3.6 12 3.6S20.4 7.4 20.4 12 16.6 20 12 20z"/></svg>
+            Reservar por WhatsApp
+          </a>
+          <button id="confirmBtn" class="btn-neon font-display uppercase text-sm tracking-wider font-semibold px-8 py-3.5 rounded-full">
+            Confirmar reserva
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section id="galeria" class="py-24 md:py-32 bg-ink">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="reveal mb-12">
+      <p class="font-display uppercase tracking-[0.3em] text-neon text-xs md:text-sm mb-3">Portfolio</p>
+      <h2 class="font-display uppercase font-semibold text-4xl md:text-5xl">El trabajo habla solo</h2>
+    </div>
+
+    <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Skin fade limpio">
+        <img src="https://images.unsplash.com/photo-1629189784191-9afdcbcb0398?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Skin fade limpio</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Diseño freestyle">
+        <img src="https://images.unsplash.com/photo-1568339434343-2a640a1a9946?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Diseño freestyle</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Perfilado de barba">
+        <img src="https://images.unsplash.com/photo-1599011176306-4a96f1516d4d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Perfilado de barba</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Corte urbano">
+        <img src="https://images.unsplash.com/photo-1599834562135-b6fc90e642ca?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Corte urbano</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Texturizado">
+        <img src="https://images.unsplash.com/photo-1578390432942-d323db577792?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Texturizado</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Fade + diseño">
+        <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Fade + diseño</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Platinado">
+        <img src="https://images.unsplash.com/photo-1605497787865-e6d4762b386f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Platinado</span>
+        </div>
+      </div>
+      <div class="gallery-item group relative aspect-square rounded-xl overflow-hidden cursor-pointer" data-caption="Combo High Level">
+        <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/0 to-ink/0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <span class="font-display uppercase text-sm tracking-wide">Combo High Level</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="hidden fixed inset-0 z-50 bg-ink/95 backdrop-blur-sm items-center justify-center p-6">
+  <button id="lightboxClose" class="absolute top-6 right-6 text-gray-300 hover:text-neon">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="max-w-2xl w-full">
+    <img id="lightboxImg" src="" class="w-full rounded-2xl border border-inkline">
+    <p id="lightboxCaption" class="font-display uppercase tracking-wide text-center mt-4 text-gray-300"></p>
+  </div>
+</div>
+
+<!-- ============ OPINIONES ============ -->
+<section id="opiniones" class="py-24 md:py-32 bg-inksoft border-y border-inkline">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="reveal text-center mb-14">
+      <p class="font-display uppercase tracking-[0.3em] text-neon text-xs md:text-sm mb-3">Opiniones</p>
+      <h2 class="font-display uppercase font-semibold text-4xl md:text-5xl mb-6">Lo que dice la calle</h2>
+      <div class="inline-flex items-center gap-3 glass rounded-full px-6 py-3">
+        <span class="text-neon text-2xl leading-none">★★★★★</span>
+        <span class="font-display text-xl font-semibold">4.9/5</span>
+        <span class="text-gray-400 text-sm">en Google Reviews</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <blockquote class="reveal glass rounded-2xl p-8">
+        <span class="text-neon text-4xl font-display leading-none">"</span>
+        <p class="text-lg md:text-xl leading-relaxed -mt-2">La rompen toda con los fades. Ninguna otra barbería de la zona saca esos degrades tan limpios.</p>
+        <footer class="mt-6 flex items-center justify-between">
+          <span class="font-display uppercase tracking-wide text-sm text-gray-400">Lucas V.</span>
+          <span class="text-neon text-sm">★★★★★</span>
+        </footer>
+      </blockquote>
+      <blockquote class="reveal glass rounded-2xl p-8">
+        <span class="text-neon text-4xl font-display leading-none">"</span>
+        <p class="text-lg md:text-xl leading-relaxed -mt-2">Los pibes son unos genios. Te atienden a horario, buena música y el corte queda tremendo.</p>
+        <footer class="mt-6 flex items-center justify-between">
+          <span class="font-display uppercase tracking-wide text-sm text-gray-400">Valentín G.</span>
+          <span class="text-neon text-sm">★★★★★</span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UBICACION ============ -->
+<section id="ubicacion" class="py-24 md:py-32 bg-ink">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="reveal mb-14">
+      <p class="font-display uppercase tracking-[0.3em] text-neon text-xs md:text-sm mb-3">Ubicación</p>
+      <h2 class="font-display uppercase font-semibold text-4xl md:text-5xl">Encontranos en Belgrano</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+
+      <!-- Mapa estilizado -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Juramento+2150+Belgrano+CABA" target="_blank" rel="noopener"
+         class="reveal group relative rounded-3xl overflow-hidden border border-inkline min-h-[340px] md:min-h-[420px] block">
+        <svg viewBox="0 0 600 500" class="w-full h-full absolute inset-0" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="500" fill="#111111"/>
+          <g stroke="#242424" stroke-width="2">
+            <line x1="0" y1="90" x2="600" y2="90"/>
+            <line x1="0" y1="190" x2="600" y2="190"/>
+            <line x1="0" y1="300" x2="600" y2="300"/>
+            <line x1="0" y1="410" x2="600" y2="410"/>
+            <line x1="110" y1="0" x2="110" y2="500"/>
+            <line x1="250" y1="0" x2="250" y2="500"/>
+            <line x1="390" y1="0" x2="390" y2="500"/>
+            <line x1="500" y1="0" x2="500" y2="500"/>
+          </g>
+          <line x1="0" y1="250" x2="600" y2="250" stroke="#00FF66" stroke-opacity="0.35" stroke-width="6"/>
+          <line x1="250" y1="0" x2="250" y2="500" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="6"/>
+          <circle cx="250" cy="250" r="34" fill="#00FF66" fill-opacity="0.18" class="pin-pulse" style="transform-origin:250px 250px"/>
+          <circle cx="250" cy="250" r="9" fill="#00FF66"/>
+          <circle cx="250" cy="250" r="9" fill="none" stroke="#0D0D0D" stroke-width="2"/>
+        </svg>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5 glass rounded-2xl px-5 py-4 flex items-center justify-between group-hover:border-neon/50 transition-colors">
+          <div>
+            <p class="font-display uppercase text-sm tracking-wide">Juramento 2150, Belgrano</p>
+            <p class="text-xs text-gray-400 mt-0.5">A media cuadra de la estación Juramento</p>
+          </div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00FF66" stroke-width="2" class="shrink-0"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </div>
+      </a>
+
+      <!-- Info -->
+      <div class="reveal glass rounded-3xl p-7 md:p-9 flex flex-col justify-between">
+        <div>
+          <div class="mb-7">
+            <h3 class="font-display uppercase text-sm tracking-widest text-gray-500 mb-2">Dirección</h3>
+            <p class="text-lg">Juramento 2150, Belgrano, CABA</p>
+            <p class="text-gray-400 text-sm mt-1">A media cuadra de la estación Juramento</p>
+          </div>
+
+          <div class="mb-7">
+            <h3 class="font-display uppercase text-sm tracking-widest text-gray-500 mb-3">Horarios</h3>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between border-b border-inkline pb-2"><span class="text-gray-300">Lunes a Viernes</span><span class="font-display">10:00 – 20:00</span></li>
+              <li class="flex justify-between border-b border-inkline pb-2"><span class="text-gray-300">Sábados</span><span class="font-display">10:00 – 20:00</span></li>
+              <li class="flex justify-between"><span class="text-gray-300">Domingos</span><span class="font-display text-gray-500">Cerrado</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-display uppercase text-sm tracking-widest text-gray-500 mb-3">Contacto</h3>
+            <p class="text-sm mb-1">📞 <a href="tel:+541158901234" class="hover:text-neon">+54 11 5890-1234</a></p>
+            <p class="text-sm">📷 <a href="https://instagram.com/fadeculture.ba" target="_blank" rel="noopener" class="hover:text-neon">@fadeculture.ba</a></p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 mt-8">
+          <a href="https://www.google.com/maps/search/?api=1&query=Juramento+2150+Belgrano+CABA" target="_blank" rel="noopener" class="btn-neon font-display uppercase text-sm tracking-wider font-semibold px-6 py-3.5 rounded-full text-center">Cómo llegar</a>
+          <a href="tel:+541158901234" class="btn-ghost font-display uppercase text-sm tracking-wider font-semibold px-6 py-3.5 rounded-full text-center">Llamar ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-inksoft border-t border-inkline py-14">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+      <div>
+        <p class="font-display text-2xl tracking-tight font-semibold mb-3">FADE<span class="text-neon">CULTURE</span></p>
+        <p class="text-gray-400 text-sm max-w-xs">Barbería urbana en Belgrano. Fades, freestyle y actitud de barrio.</p>
+        <div class="fade-bar mt-6 max-w-[200px]"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="off"></span><span class="off"></span><span class="off"></span><span class="off"></span></div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+        <div>
+          <h4 class="font-display uppercase tracking-widest text-gray-500 mb-3 text-xs">Navegación</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#servicios" class="hover:text-neon">Servicios</a></li>
+            <li><a href="#reservas" class="hover:text-neon">Reservas</a></li>
+            <li><a href="#galeria" class="hover:text-neon">Galería</a></li>
+            <li><a href="#ubicacion" class="hover:text-neon">Ubicación</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display uppercase tracking-widest text-gray-500 mb-3 text-xs">Contacto</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="tel:+541158901234" class="hover:text-neon">+54 11 5890-1234</a></li>
+            <li><a href="https://instagram.com/fadeculture.ba" target="_blank" rel="noopener" class="hover:text-neon">@fadeculture.ba</a></li>
+          </ul>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <h4 class="font-display uppercase tracking-widest text-gray-500 mb-3 text-xs">Horarios</h4>
+          <p class="text-gray-300">Lun a Sáb<br>10:00 – 20:00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-inkline text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
+      <p>© 2026 Fade Culture. Todos los derechos reservados.</p>
+      <p>Juramento 2150, Belgrano, CABA</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón flotante WhatsApp -->
+<a id="waFloat" href="https://wa.me/5491158901234?text=Hola%2C%20quiero%20consultar%20por%20un%20turno%20en%20Fade%20Culture"
+   target="_blank" rel="noopener"
+   class="pulse-ring fixed bottom-5 right-5 md:bottom-8 md:right-8 z-40 w-14 h-14 md:w-16 md:h-16 rounded-full bg-neon text-ink flex items-center justify-center shadow-glowlg"
+   aria-label="Consultar por turno vía WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.1-1.3 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C4 14.6 3.6 13.3 3.6 12 3.6 7.4 7.4 3.6 12 3.6S20.4 7.4 20.4 12 16.6 20 12 20z"/></svg>
+</a>
+
+<!-- Modal confirmación -->
+<div id="confirmModal" class="hidden fixed inset-0 z-50 bg-ink/90 backdrop-blur-sm items-center justify-center p-6">
+  <div class="glass rounded-3xl p-8 md:p-10 max-w-md w-full text-center">
+    <div class="w-16 h-16 rounded-full bg-neon/15 border border-neon/40 flex items-center justify-center mx-auto mb-5">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00FF66" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h3 class="font-display uppercase font-semibold text-2xl mb-2">¡Turno confirmado!</h3>
+    <p id="modalSummary" class="text-gray-300 text-sm mb-6 leading-relaxed"></p>
+    <button id="modalClose" class="btn-neon font-display uppercase text-sm tracking-wider font-semibold px-8 py-3.5 rounded-full w-full">Listo</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
